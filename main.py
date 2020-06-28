@@ -121,7 +121,7 @@ class MainApp(MDApp):
 		self.dialog.open()	
 
 	def show_solution(self,obj):
-		close_button = MDFlatButton(text='Close', on_release=self.close_dialog)
+		close_button = MDFlatButton(text='Close', on_release=self.close_Ndialog)
 		a=int(self.avalue.text)
 		b=int(self.bvalue.text)
 		c=int(self.cvalue.text)
@@ -142,11 +142,13 @@ class MainApp(MDApp):
 		elif d==0:
 			r1 = (-b/(2*a))
 			r2 = (-b/(2*a))
-		sol+=f'According To Sridhar Acharya Formula, Roots Of a QE is given by (-b +- √D / 2a) \n\nThe Formed equation is {a}x²{babs}x{cabs}\n\nTherefore α=-({babs}) - √({babs}² - 4*{a}*{cabs})/2*{a}   and   β=-({babs}) - √({babs}² - 4*{a}*{cabs})/2*{a}, Where β & α are the two roots of the given QE\n\nα={babs}-√{d}/{ta}             β={babs}+√{d}/{ta}\n\nAnd Hence We Get, α={r1}  and  β={r2}'
+		sol+=f'According To Sridhar Acharya Formula, Roots Of a QE is given by (-b +- √D / 2a) \n\nThe Formed equation is {a}x²{babs}x{cabs}\n\nTherefore α=-({babs}) - √({babs}² - 4*{a}*{cabs})/2*{a}   and   β=-({babs}) - √({babs}² - 4*{a}*{cabs})/2*{a}, Where β & α are the two roots of the given QE\n\nα={babs}-√{d}/{ta}             β={babs}+√{d}/{ta}\n\nAnd Hence We Get, α = {r1}  and  β = {r2}'
 		self.Ndialog=MDDialog(title='Solution',text=sol,size_hint=(0.95,1),buttons=[close_button])
 		self.Ndialog.open()
-	
+		self.dialog.dismiss()
 	def close_dialog(self,obj):
 		self.dialog.dismiss()
-		self.Ndialog.dismiss()
+	
+	def close_Ndialog(self,obj):
+		self.Ndialog.dismiss()	
 MainApp().run()
